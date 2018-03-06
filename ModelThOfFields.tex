@@ -1,0 +1,146 @@
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,mathpazo,amssymb}
+\usepackage{geometry}[margin=0.5in]
+\title{Model Theory of Fields}
+\date{February 2018}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+\begin{document}
+
+\maketitle
+
+\section{Introduction} The goal of this project is to prove the following theorem:
+\begin{theorem}
+    Let $f:\mathbb{C}^{n}\to \mathbb{C}^{n}$ be a polynomial map. If $f$ is one to one, then $f$ is onto.
+\end{theorem}
+However the plan is to do this using tools from Model Theory. To understand the proof in its entirety we must first discuss some background information about.
+
+%Field axioms T_{fields}, field characteristic, transcendence degree, algebraic closure
+%complete theory,decidable theory,language
+%model and cardinality, k categorical, \aleph_{0}
+%Vaught's test https://en.wikipedia.org/wiki/%C5%81o%C5%9B%E2%80%93Vaught_test
+
+\section{Background}
+
+\subsection{Fields} 
+\subsubsection{Field Axioms}
+We are talking about fields in the usual algebraic sense. The set of field axioms is denoted $T_{\text{fields}}$, which has the axioms of closure, distributivity, existence of inverses, etc. These axioms were covered in class. Note that a field does \textbf{not} need to be a subset of $\mathbb{R}$. Examples include $\bigslant{{Z}_{2}[x]}{<x^{2} + x + 1>}$ and $\mathbb{C}$.
+\subsubsection{Characteristic of a Field}
+\begin{defn}
+Characteristic of a field F is the smallest integer $n$ such that $ne = e + e + e + ... + e = 0$.
+\end{defn}
+
+Conventionally we say that fields like $\mathbb{Q}$ and $\mathbb{R}$ have characteristic 0. However there are finite fields $\mathbb{F}_{p}$ of characteristic $p$. This is a provable result. Note that all fields either have characteristic $0$ or $p$-prime.\\[.07in]
+
+\noindent \textbf{Example:} The field $\bigslant{{Z}_{2}[x]}{<x^{2} + x + 1>}$ has characteristic 2 since $1 + 1 = 0$ in this field.
+
+\subsubsection{Algebraic Closure}
+\begin{defn}
+    A field F is the algebraic closure of K if and only if F is algebraic over K and every polynomial $f(x)\in K[x]$ splits completely over F.
+\end{defn}
+
+It may seem redundant that we say \textit{"If F is algebraic over K"} in our definition, so we will explain what this means in detail. 
+\begin{defn}
+    F is algebraic over K if for $a \in F$ there exists $g(x) \in K[x]$ with nonzero coefficients such that $g(a) = 0$. If no such polynomial exists, $a$ is called transcendental and $F$ is not algebraic over $K$.
+\end{defn}
+
+\noindent \textbf{Example:} $\sqrt{2}$ is algebraic over $\mathbb{Q}$ since $f(x) = x^{2} -2$ gives $f(\sqrt{2}) = 0$.\\[.07in]
+
+\noindent\textbf{Example:} $\mathbb{C}$ is the algebraic closure of $\mathbb{R}$. See the Fundamental Theorem of Algebra.
+
+\subsubsection{Transcendence Degree} 
+Transcendence degree of a field is analogous to dimension of a vector space. In vector spaces, we find dimension by examining the cardinality of the set of basis vectors, all of which are linearly independent from each other. To find Transcendence degree, we must determine the cardinality of the set of elements which are algebraically independent in the field.
+
+\begin{defn}
+    A subset L of a field F is algebraically independent over a subfield K if elements in L do not satisfy a polynomial with non-trivial coefficients in K.
+\end{defn}
+
+To expand our intuition on this problem, take a field $F$ and singleton $\{a\}$ where $a \in F$. For $\{a\}$ to be an algebraically independent set over $F$, it is necessary that $a$ is transcendental over $F$. \\[.07in]
+
+\noindent \textbf{Example:} $\{\sqrt{2}\}$ is not algebraically independent over $\mathbb{Q}$. \\[.07in]
+
+\noindent \textbf{Example:} $\{e\}$ is algebraically independent over $\mathbb{Q}$ because $e$ is transcendental over $\mathbb{Q}$.
+
+\begin{defn}
+    The transcendence degree of a field extension $K$ of a field $F$ is the cardinality of the largest algebraically independent subset of $K$ over $F$.
+\end{defn}
+
+\noindent \textbf{Example:} The transcendence degree of $\mathbb{Q}(\sqrt{2},e)$ over $\mathbb{Q}$ is 1.\\[.07in]
+
+\noindent\textbf{Example:} The transcendence degree of $\mathbb{Q}(e,\pi)$ over $\mathbb{Q}$ is an open question. But it is either 1 or 2. This is because it is unknown if $e,\pi$ are algebraically independent (whether they can satisfy the same polynomial).
+
+\subsection{Mathematical Logic}
+Similarly to the last section, we aim to define some of the language (haha get it?) used in mathematical logic and provide examples to give an intuition about what these words mean.
+
+\subsubsection{Formal Languages}
+Formal languages in mathematics are more or less intuitive. They follow a lot of the structure we see in the English language for example. 
+
+\begin{defn}
+    A formal language is a set of strings of symbols together with a set of rules that are specific to it.
+\end{defn}
+
+In this proof we will be using a particular language $\mathcal{L}_{r} = \{+,
+-,\cdot,0,1\}$ which we can call \textit{"the language of rings"}. Note that
+this language makes use of first order logic and the rules associated with rings
+(ring axioms). Also note the differences in the symbols of this language.
+$+,-,\cdot$ denote binary operations whereas $0,1$ denote constants.\\[.07in]
+
+\noindent\textbf{Example:} \textit{What is an example of a sentence in $\mathcal{L}_{r}$?} $1 \cdot 1 + 0$\\[.07in]
+
+\noindent\textbf{Example:} \textit{What is something that is not a sentence in $\mathcal{L}_{r}$?} $1 \cdot \cdot  1$. We can see that although this is an ordering of the symbols in the alphabet, there is no rule for "$\cdot \cdot$".
+
+\subsubsection{Theories}
+\begin{defn}
+    A \textbf{Theory} is a set of sentences from a language, usually a deductive system is understood from context.
+\end{defn}
+
+\noindent\textbf{Example:} Many people are familiar with \textbf{Set Theory}. This is usually implied to be the rules of Zermelo-Fraenkel set theory with the axiom of choice. Something like $$\forall A \forall B(\forall x(x\in A \iff x \in B) \Rightarrow A = B$$ is an \textbf{axiom} in this theory (set equality).
+Now we would like to talk about some of the properties of theories.
+
+\begin{defn}
+  A theory is \textbf{complete} if every formula in that theory or its negation
+  are demonstrable.
+\end{defn}
+
+\noindent \textbf{Example:} If we take the axioms of group theory and add the
+following axioms:
+
+\begin{align*}
+  &1. \quad \exists a  \exists b a\neq b \land a\neq1 \land b\neq1.\\
+  &2. \quad \forall a \forall b a=1\lor b=1 \lor a=b \lor a\star b=1
+\end{align*}
+We get a complete theory since every model for this theory will be isomorphic to
+the cyclic group $C_{3}$ and every sentence or its negation will be demonstrable
+in the theory.
+
+\begin{defn}
+  A theory is \textbf{decidable} if there is a method for determining if an
+  arbitrary formula is a member of a theory.
+\end{defn}
+
+\subsubsection{Models}
+We only have left to talk about models, one of the more important objects for
+this proof.
+
+\begin{defn}
+  Given a theory, a model is a structure that satisfies the sentences of a
+  theory.
+\end{defn}
+
+Suppose we have the set of field axioms $\mathcal{T}$, can you name a model for
+$\mathcal{T}$? If you're familiar with \textit{any} field, then you can name a
+model for $\mathcal{T}$. Popular examples would be $\mathbb{Q},
+\mathbb{R},\text{GF}(2)$. Talking about the cardinality of a model becomes
+intuitive now. If your model is $\mathbb{Q}$, the cardinality of this model is $\aleph_{0}$, $\mathbb{R}$ would
+have cardinality $2^{\aleph_{0}}$ and so on. Now supposed given some theory we
+have a cardinal $\kappa$ for which there is a unique model up to isomorphism of
+cardinality $\kappa$. Then we say that this theory is $\kappa$\textit{-categorical}.
+
+
+
+
+
+\end{document}
