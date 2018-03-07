@@ -58,7 +58,7 @@ Transcendence degree of a field is analogous to dimension of a vector space. In 
     A subset L of a field F is algebraically independent over a subfield K if elements in L do not satisfy a polynomial with non-trivial coefficients in K.
 \end{defn}
 
-To expand our intuition on this problem, take a field $F$ and singleton $\{a\}$ where $a \in F$. For $\{a\}$ to be an algebraically independent set over $F$, it is necessary that $a$ is transcendental over $F$. \\[.07in]
+To expand our intuition on this problem, take a field $K \subset F$ and singleton $\{a\}$ where $a \in K$. For $\{a\}$ to be an algebraically independent set over $F$, it is necessary that $a$ is transcendental over $K$. \\[.07in]
 
 \noindent \textbf{Example:} $\{\sqrt{2}\}$ is not algebraically independent over $\mathbb{Q}$. \\[.07in]
 
@@ -135,7 +135,13 @@ $\mathcal{T}$? If you're familiar with \textit{any} field, then you can name a
 model for $\mathcal{T}$. Popular examples would be $\mathbb{Q},
 \mathbb{R},\text{GF}(2)$. Talking about the cardinality of a model becomes
 intuitive now. If your model is $\mathbb{Q}$, the cardinality of this model is $\aleph_{0}$, $\mathbb{R}$ would
-have cardinality $2^{\aleph_{0}}$ and so on. Now supposed given some theory we
+have cardinality $2^{\aleph_{0}}$ and so on. \vspace{10pt}
+
+\noindent \textbf{Example:} Find the cardinality of any model for the axiom:
+$\forall x \forall y (x = y)$. It turns out all models for this axiom have
+cardinality one. It is clear that any set with this property will only have 1 element.\vspace{10pt}
+
+Now suppose given some theory we
 have a cardinal $\kappa$ for which there is a unique model up to isomorphism of
 cardinality $\kappa$. Then we say that this theory is $\kappa$\textit{-categorical}.
 
