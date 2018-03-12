@@ -1,0 +1,128 @@
+
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo,amsmath,amssymb}
+\usepackage[margin=.7in]{geometry}
+\setlength\parindent{0pt}
+\newcommand{\Arg}{\text{Arg}}
+\newcommand{\Log}{\text{Log}}
+\begin{document}
+{\noindent \textbf{Daniel Tobias \\ Complex Analysis Homework 3}}\vspace{10pt}
+
+
+\textbf{Exercise 1.3.5} For $\varepsilon > 0$ let $\delta =
+\sqrt{\varepsilon}$. Thus when $|z - (1+i)| < \delta$ we have
+$|z - (1+i)| < \sqrt{\varepsilon} \Rightarrow |z-(1+i)|^{2} =
+|(z-(1+i))(z+(1+i))| = |z^{2}-2i| < \varepsilon$ \vspace{10pt}
+
+For $\varepsilon >0$, let $\delta = \text{min}\{\frac{\varepsilon}{\sqrt{5}},1\}$. Then
+$|z+i| = |z - 2 + 2 + i| > \big||z+2| - |2-i|\big| > \sqrt{5} - 1 > 1$. So it
+must follow that $\frac{|1-2i|}{|z+i|} < \sqrt{5}$. So when $|z+2| <
+\frac{\varepsilon}{\sqrt{5}}$
+
+$$\frac{|1-2i||z+2|}{z+i}= \Big | \frac{(1-2i)z+(2-4i)}{z+i}\Big | = \Big |
+\frac{5z}{z+i}- (4+2i)\Big | < \sqrt{5}\frac{\varepsilon}{\sqrt{5}}=\varepsilon$$
+
+\textbf{Exercise 1.3.16} For $\varepsilon>0$ we have that there exists $\delta >0$ such that
+when $|z-z_{0}| < \delta$ that $|f(z)| < \frac{\varepsilon}{M}$. Now for
+$\varepsilon$ we will use $\delta$ such that when $|z-z_{0}|<\delta$ we have
+$|f(z)g(z)| < \frac{\varepsilon}{M} M = \varepsilon$. And so $\lim_{z\to z_{0}}
+f(z)g(z) = 0$.\vspace{10pt}
+
+\textbf{Exercise 1.5.8}
+\begin{align*}
+  \sin(z) = 2i\\
+  \frac{w-w^{-1}}{2i}=2i\\
+  w - w^{-1} = -4\\
+  w^{2} + 4w -1 = 0\\
+  w_{1,2} = -2\pm 2\sqrt{5}
+\end{align*}
+
+So in this case $e^{iz} = -2\pm 2\sqrt{5}$. Since $-2 \pm 2 \sqrt{5} = -2 \pm 2
+\sqrt{5} e^{i \theta}$ when $\theta$ is any multiple of $2\pi$ we have $z =
+\log(-2 \pm 2\sqrt{5})+ 2\pi k$.\vspace{10pt}
+
+\begin{align*}
+  \cot(z) = -1 + i\\
+  \frac{i(e^{iz}+e^{-iz})}{e^{iz}-e^{-iz}} = -1 + i\\
+  iw + iw^{-1} = (-1 + i)(w-w^{-1})\\
+  w^{2}+(2i-1) = 0\\
+  w_{1,2} = \pm \sqrt{-2i + 1}
+\end{align*}
+
+Since $1-2i =\sqrt{5}e^{-i \arccos(1/\sqrt{5})}$ we have %$e^{iz} =
+%\sqrt{\sqrt{5}e^{-i \arccos(1/\sqrt{5})}} = \sqrt{\sqrt{5}}e^{\frac{-i
+%    \arccos{1/\sqrt{5}}}{2}}$ yielding $$z =-\frac{1}{4}\log( 5)+i(-\arccos(1/\sqrt{5})
+%    + 2\pi k)$$
+$e^{2iz} = \sqrt{5} e^{-i\arccos(1/\sqrt{5})}$ so $y = \frac{-1}{4}\log(5)$,
+$x=-i \frac{1}{2}\arccos(1/\sqrt{5})$. This yields $z = -i\frac{1}{4} \log(5) +
+(-\arccos(1/\sqrt{5})+\pi k)$.\vspace{10pt}
+
+\textbf{Exercise 1.5.14} Let $-1 \leq x \leq 1$ and $y = \sqrt{1-x^2}$. Then we
+can set $z = xi + y$, these are points on the unit circle with nonnegative real
+part. Since $|z| = 1$, we have that $\text{Log}(z) = i \text{Arg}(z)
+\Rightarrow -i\text{Log}(z) = \text{Arg}(z)$. Now if $z = e^{i\theta}$ we have
+$\text{Log}(z) = i\theta$. Since $z= ix + \sqrt{1-x^2}$, we can see that
+$\sin(\theta) = x$, ie that $\theta = \arcsin(x)$. Thus we have $\text{Log}(z) =
+i\arcsin(x)$. Now multiplying both sides by $-i$ and making the proper
+substitution yields $-i\text{Log}(ix+\sqrt{1-x^2}) =
+\arcsin(x)$. \vspace{10pt}
+
+Let $z = \frac{i(i+x)}{\sqrt{1+x^2}}$. This ensures that $|z| = 1$. Now we
+notice that $\text{Arg}(z) = -\arctan(x)$ (I drew a picture for this). We know that $\text{Log}(z) =\ln|z| + \text{Arg}(z)$ so
+$\text{Log(z}) =\text{Arg}(z) = -\arctan (x)\Rightarrow i\text{Log}(z) =
+-\text{Arg}(z) = \arctan(x)$. Now we substitute.
+
+\begin{align*}
+  i\text{Log}\left(\frac{i(i+x)}{\sqrt{1+x^{2}}}\right) = \frac{i}{2} \text{Log}\left(\frac{-(i+x)^{2}}{(1+x^2)}\right)=\frac{i}{2} \text{Log}\left(\frac{i+x}{i-x}\right)= \arctan(x)
+\end{align*}
+\vspace{10pt}
+
+\textbf{1.} $e^{i\frac{\pi}{4}}= \cos(\frac{pi}{2}+i\sin(\frac{pi}{4}))=
+\frac{\sqrt{2}}{2}+ i\frac{\sqrt{2}}{2}$\vspace{10pt}
+
+\textbf{2.} $e^{i\frac{5\pi}{4}}=\cos(\frac{5\pi}{4})+i\sin(\frac{5\pi}{4}) =
+-\frac{\sqrt{2}}{2}-i\frac{\sqrt{2}}{2}$.\vspace{10pt}
+
+\textbf{3.} Note that when $z = 1 + i \sqrt{3}$ that $|z| = 2,\text{Arg}(z) =
+\frac{\pi}{3}$. So $\log(1+i\sqrt{3})= \ln(2) + i(\frac{\pi}{3} + 2\pi
+n)$.\vspace{10pt}
+
+\textbf{4.} $|-i| = 1,\Arg(z) = -\pi$, $\log(-i)=i( -\frac{\pi}{2} + 2\pi n)$.\vspace{10pt}
+
+\textbf{5.} $|1+i| = \sqrt{2},\Arg(1+i)=\frac{\pi}{4}$. $(1+i)^{i}=
+e^{i\log(1+i)}=e^{i (\ln(\sqrt{2})+i(\frac{\pi}{4}+2\pi n))}$.\vspace{10pt}
+
+\textbf{6.} $2^{-(1+i)}=e^{(1+i)\log(\frac{1}{2})}=
+e^{(1+i)(\ln(\frac{1}{2})+i2\pi n)}$.\vspace{10pt}
+
+\textbf{7.}
+$e^{\frac{7\pi}{2}}=\cos(\frac{7\pi}{2})+i\sin(\frac{7\pi}{2})$.\vspace{10pt}
+
+\textbf{8.} $\Log(3+2i)= \ln(\sqrt{13})+ i \arccos(\frac{3}{\sqrt{13}})$, so
+$\exp(\Log(3+2i))=exp(\ln(\sqrt{13})+i\arccos(\frac{3}{\sqrt{13}}))=\sqrt{13}(\cos(\arccos(\frac{3}{\sqrt{13}}))+i\sin(\arccos(\frac{3}{\sqrt{13}})))$.\vspace{10pt}
+
+\textbf{9.}$ |4-4i| = 4\sqrt{2}, \Arg(4-4i)=\frac{\pi}{4}$. So $\Log(4-4i)=
+\frac{1}{2}\ln(32) - i\frac{\pi}{4}$.\vspace{10pt}
+
+\textbf{10.}  $\Log(-1) = i\pi$. (hey it's Euler's identity incognito!)\vspace{10pt}
+
+\textbf{11.} Note that $\log(i) = i(\frac{\pi}{2} + 2\pi n)$. Let $\phi =
+\sqrt{3}(\frac{\pi}{2}+2\pi n)$. Now
+$i^{\sqrt{3}}= \exp(\sqrt{3}\log(i)) = \cos(\phi)+i\sin(\phi)$.\vspace{10pt}
+
+\textbf{12.} $z - \sqrt{3} -i$ so $|z| = 2, \Arg(z) = -\frac{\pi}{6}$. Now
+$\log(\sqrt{3}-i) = \ln(2)+i(-\frac{\pi}{6}+2\pi n)$.\vspace{10pt}
+
+\textbf{21.} \textbf{(i)}
+\begin{align*}
+  &\cosh^{2}(z) = \frac{1}{4}(e^{2z}+2+e^{-2z})\\
+  &\sinh^{2}(z) = \frac{1}{4}(e^{2z}-2+e^{-2z})\\
+  &\cosh^{2}(z) - \sinh^{2}(z) = \frac{1}{4}(e^{2z}+2+e^{-2z} - \frac{1}{4}(e^{2z}-2+e^{-2z}) = \frac{1}{2} - \left(-\frac{1}{2}\right)= 1
+\end{align*}
+\vspace{10pt}
+
+\textbf{(ii)} We have that $\cos(z) = \frac{1}{2} (e^{iz}+e^{-iz})$. So
+
+$$\cos(iz) = \frac{1}{2} (e^{i^{2}z}+e^{-i^{2}z})= \frac{1}{2}(e^{z}+e^{-z})=\cosh(z)$$
+\end{document}
