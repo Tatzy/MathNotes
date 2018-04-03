@@ -1,18 +1,18 @@
 \documentclass[a4paper]{article}
 \usepackage[utf8]{inputenc}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%PACKAGGES%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage[margin=0.7in]{geometry}  % Default margin
 \usepackage{mathpazo}                % Changes font to mathpazo :^)
 \usepackage{amsmath,amssymb}         %
 \usepackage{fancyhdr}                %
 \usepackage{amsthm}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HEADER/FOOTER%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \pagestyle{fancy}                    % These are used for custom headers, use
 \lhead{\bfseries \name}              % \def\name{name} and \def\assigment{assign}
 \chead{\bfseries \assignment}        % in the hw latex file to assign values
 \rhead{\bfseries \thepage}           %
 \cfoot{}                             %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%COMMANDS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newcommand{\Q}{\mathbb{Q}}          % 
 \newcommand{\C}{\mathbb{C}}          %
 \newcommand{\Z}{\mathbb{Z}}          %
@@ -21,12 +21,8 @@
 \newcommand{\pypx}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\Log}{\text{Log}}        %
 \newcommand{\Arg}{\text{Arg}}        %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PARAGRAPH-STYLES%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \setlength{\parindent}{0pt}          % Sets default paragraph indent length to 0
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-                                     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ENVIRONMENTS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Problem homework environment \begin{problem number}{question statement}
+
 \newenvironment{problem}[2]{\textbf{#1. } \textit{#2\\[10pt]}\indent}{
   \vspace{10pt} \par\noindent\hrulefill \\[10pt]}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
