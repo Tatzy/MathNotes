@@ -5,6 +5,7 @@
 \usepackage{mathpazo}                % Changes font to mathpazo :^)
 \usepackage{amsmath,amssymb}         %
 \usepackage{fancyhdr}                %
+\usepackage{amsthm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HEADER/FOOTER%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagestyle{fancy}                    % These are used for custom headers, use
 \lhead{\bfseries \name}              % \def\name{name} and \def\assigment{assign}
@@ -17,7 +18,10 @@
 \newcommand{\Z}{\mathbb{Z}}          %
 \newcommand{\re}{\text{Re}}          %
 \newcommand{\im}{\text{Im}}          %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%PARAGRAPH-STYLES%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\pypx}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\Log}{\text{Log}}        %
+\newcommand{\Arg}{\text{Arg}}        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PARAGRAPH-STYLES%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setlength{\parindent}{0pt}          % Sets default paragraph indent length to 0
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                      %
