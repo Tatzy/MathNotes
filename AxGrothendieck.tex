@@ -1,0 +1,86 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{fancyhdr,enumerate}
+\usepackage{eulervm,amsmath,amssymb,amsthm}
+\usepackage{lipsum}% just to generate text for the example
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{defn}{Definition}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\rightmark}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\alg}[1]{\overline{\mathbb{#1}_p}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\title{Proving the Ax-Grothendieck Theorem}
+\author{Daniel Tobias}
+\date{April 2019}
+\begin{document}
+\maketitle
+
+\section{Introduction}
+I had originally produced a document in May 2018 as part of university seminar course which outlined a proof of Ax-Grothendieck Theorem in full detail. At the time I had a little bit of knowledge in Algebra and I had just recently began to appreciate some results from Goedel, in particular Goedel's Incompleteness Theorems. This inspired me to use opportunity to learn some Mathematical Logic to familiarise myself with common techniques and how it interacts with other fields of Mathematics. The original document I had produced for the seminar is quite lengthy, covering not only Model Theory but also information about Algebra. I am producing this document as a reflection and refresher so that I may competently recall the technical details of the proof, to this end I do not plan on covering many of the same things to the same level of depth I did in the first document. 
+
+\section{Statement and Outline}
+
+\begin{theorem}[](Ax-Grothendieck)
+An injective polynomial function from $\C^{n}$ to itself is necessarily bijective.
+\end{theorem}
+An observation I saw from Terence Tao is one might consider replacing "polynomial" with "holomorphic" however the existence of Fatou-Bierbach domains implies there are holomorphic injections with no holomorphic inverses and this would ruin our theorem. There is also a generalisation in which instead of a polynomial from $\C^{n}$ to itself we consider a morphism from an algebraic variety $X$ to itself, but such an abstraction escapes my comprehension. The nice part about this theorem is that it can be broken into three pieces which utilise different types of mathematics. We can outline the proof as follows:
+\begin{enumerate}
+	\item Proving the case for some finite fields, this is a trivial set theoretic proof.
+	\item Proving the case for the algebraic closure of these finite fields, this will require some algebra.
+	\item Extending the argument to $\C^{n}$ which I will do in a model theoretic way.
+\end{enumerate}
+
+\section{Proof}
+We start with the first item on our list.
+\begin{lemma}
+Let $k$ denote a finite field. Then an injective polynomial map $P: k \to k$ is bijective.
+\end{lemma}
+\begin{proof}
+Injective functions from a finite set to itself are bijective.
+\end{proof}
+Now we would like to build up this trivial case to prove something a little closer to Ax-Grothendieck theoreom.
+\begin{theorem}
+	Let $k$ be a finite field with algebraic closure $K$, then an injective polynomial map $P: K^{n} \to K^{n}$ is surjective.
+\end{theorem}
+\begin{proof}
+	Let $A$ denote the set of coefficients of $P$. Then there exists a subfield $K_{0} \subset K$ which contains all of the coefficients of $P$ (imagine adjoining the coefficients to $k$ for example). Next we take an element $\mathbf{x} \in K^{n}$. For each coordinate in $\mathbf{x}$ which we will denote $x_{i}$, there exists a finite field $K_{1}$ with $K_{0} \subset K_{1} \subset K$ and $x_1, x_2, ..., x_n \in K_{1}$. Since $K_{1}$ is finite, we can apply the previous lemma now to see that $P|_{K_{1}}$ is a bijection from $K_{1}$ to itself. If we were to pick some $\mathbf{y} \in K_{1}^{n}$ we are guaranteed an $\mathbf{x}$ such that $P(\mathbf{x}) = \mathbf{y}$.
+\end{proof}
+
+There is actually a proof of this fact using Hilbert's nullstellensatz, which I may add later on. We take a brief intermission to now discuss some of the model theoretic aspects of this proof. We want to work in the language of rings, that is $\mathcal{L}_{R} = \{0, 1, +, \cdot\}$ equipped also with the symbols from first-order logic (which in turn gives rise to a first-order language). Using thing language, we can state all of axioms of fields, denoted $\mathcal{T}$. Next, we can adjoin the sentence $$\forall a_1, a_2, ..., a_{n-1} ~ \exists x \left(x^n + \sum_{i=0}^{n-1} a_{i}x^{i} = 0\right)$$
+This sentence with $\mathcal{T}$ yields a new theory of algebraically closed fields, which we will call $\mathcal{A}$. Finally we would like to add a sentence which controls the characteristic of our field, we defined $$\phi_{n} = 1 \cdot n= 0$$ Keep in mind this is actually shorthand for the addition of 1 $n$ times. With this sentence we can begin to model a few algebraically closed fields. For example, $\mathcal{A}_{3} = \mathcal{A} \cup \phi_{3}$ will be an algebraically closed field of characteristic 3. We can also form fields of characteristics 0 by considering $$\mathcal{A}_{0} = \mathcal{A} \cup \bigcup_{i \in \mathbb{N}} \lnot \phi_{i}$$
+Which simply means that we have a theory of an algebraically closed field with no finite characteristic. It is important to remember here that algebraically closed fields are uniquely determined by their characteristic and the transcendence degree over its prime subfield (up to isomorphism). Additionally, we know that the theories $\mathcal{A}_{0}$ and $\mathcal{A}_{p}$ are complete theories. That is, for any $\mathcal{L}$-formula $\vartheta$ we have $\mathcal{A}_{(\cdot)} \models \vartheta$ or $\mathcal{A}_{(\cdot)} \models \lnot\vartheta$.\\
+
+It is important to note that the statement \textit{an injective polynomial map from $K^n$ to itself is surjective} for some algebraically closed field $K$ is expressible in $\mathcal{L}_{R}$. We state this without proof.
+
+\begin{theorem} For a sentence $\varphi$ in $\mathcal{L}_{R}$ the following are equivalent
+\begin{enumerate}[i.]
+	\item $\C \models \varphi$
+	\item $\mathcal{A}_{0} \models \varphi$
+	\item There exists an $N$ such that for all prime $p > N$, $\mathcal{A}_{p} \models \varphi$
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+(ii) $\to$ (i) $\C$ is an algebraically closed field of characteristic 0. \\
+
+(i) $\to$ (ii) $\mathcal{A}_{0}$ is complete, so we must have either $\mathcal{A}_{0} \models \varphi$ or $\mathcal{A}_{0} \not\models \varphi$. If the latter is true, then we cannot possibly have $\C \models \varphi$.\\
+
+(ii) $\to$ (iii) If we define $\theta_{n} = 1 \cdot n \neq 0$, then for some $n$, $\mathcal{A} \cup \{\theta_{1}, \theta_{2}, ..., \theta_{n} \} \models \varphi$. If we now just choose a prime $p > n$, then $\mathcal{A}_{p} \models \varphi$.\\
+
+(iii) $\to$ (ii) If $\mathcal{A}_{0} \not\models \varphi$, then $\mathcal{A}_{0} \models \lnot \varphi$, so we cannot pick an arbitrarily large prime such that $\mathcal{A}_{p} \models \varphi$.
+\end{proof}
+
+We can now complete the proof of Ax-Grothendieck theorem.
+\begin{proof}
+	Let $\Xi_{n}$ be the $\mathcal{L}_{R}$ sentence that an injective polynomial from $K^n$ to itself is surjective. Then by a former theorem, $\mathcal{A}_{p} \models \Xi$. By the previous theorem, this implies that $\C \models \Xi$ which is exacly the statement of Ax-Grothendieck theorem.
+\end{proof}
+
+\end{document}
