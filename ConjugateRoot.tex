@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage[margin=.75in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{eulervm,amsmath,amssymb,amsthm}
+\newtheorem{theorem}{Theorem}
+\title{Conjugate Root Theorem}
+\author{Daniel Tobias}
+\date{}
+
+\begin{document}
+\maketitle
+
+This document was inspired by a high school student I was tutoring in Algebra. The student had noticed the patterns in the conjugate root theorem, which in high school is generally just stated between the fields $\mathbb{R}$ and $\mathbb{C}$. Simply put the theorem is usually stated as
+\begin{theorem} Given a polynomial $f \in \mathbb{R}[X]$, if $\zeta \in \mathbb{C}$ is satisfied by $f$ (meaning $f(\zeta) = 0$), then the conjugate of $\zeta$, given by $\overline{\zeta}$ also satisfies $f$. 
+\end{theorem} 
+Of course, this theorem is not generally stated in high school with notation, the usual statement would be something along the lines of \textit{"if a polynomial with real coefficients has a complex number as a root, then the conjugate of that complex number is also a root"}. As my student was clever enough to notice, with a polynomial like $f(x) = x^2 - 2$, we know that $f(\sqrt{2}) = 0$ and that $f(-\sqrt{2})= 0$. This is similar to the case before, but in this case we have the fields $\mathbb{Q}(\sqrt{2})$ and $\mathbb{Q}$. So adding in some generalisation into the statement we can get the following theorem
+
+\begin{theorem}
+Let $E$ be an extension field of $F$ such that a polynomial $f \in F[X]$ has a root $\zeta \in E$. Then for some $\sigma \in \text{Gal}(E/F)$, we have that $f(\sigma(\zeta)) = 0$.
+\end{theorem}
+
+
+
+\begin{proof}
+\begin{align*}
+    f(\sigma(\zeta)) = \sum_{i=0}^{n}a_{i} (\sigma(\zeta))^{i} = \sum_{i=0}^{n}a_{i} (\sigma(\zeta^{i})) = \sum_{i=0}^{n} (\sigma(a_{i}\zeta^{i})) = \sigma \left ( \sum_{i=0}^{n}a_{i}\zeta^{i} \right ) = \sigma (0) = 0
+\end{align*}
+\end{proof}
+
+If we are toying around with this theorem, we might think that instead of choosing and element in $Gal(E/F)$ we could consider something weaker like and $F$-linear transformation. But alas, we require that $\sigma(x^{n}) = \sigma(x)^{n}$ which is not satisfied by such a transformation and thus it would disrupt the proof. We can now recover the simpler theorem statement. We pick our ground field as $\mathbb{R}$ and our field extension as $\mathbb{C} = \mathbb{R}(i)$. If we denote complex conjugation as $\overline{\cdot}$, we can see that $\overline{\cdot} \in Gal(\mathbb{C}/\mathbb{R})$.
+\end{document}
