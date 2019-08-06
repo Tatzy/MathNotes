@@ -1,0 +1,23 @@
+\input{hwnoteheader.tex}
+\def\name{Daniel Tobias}
+\def\assignment{Quantum Mechanics Notes}
+
+\begin{document}
+It suffices to begin with some definitions and notations we see in Quantum Mechanics. First we will denote a quantum state like $\ket{\psi}$. A quantum state is an element of our (possibly infinite) dimensional Hilbert space $V$. Similarly we have $\bra{\psi}$ which is member of the dual space $V^{*}$. We can define an inner product on $V$ called $(\cdot, \cdot)$. An important property of this inner product is its anti-symmetry, that is $(\phi, \psi) = (\psi^{*}, \phi)$. Now for some operator $H$, we will say it is Hermitian in the case that $(\phi, H\psi) = (H\phi, \psi)$. 
+
+\begin{problem}{Statement}{The eigenvalues of $H$ are real}
+Let $\chi$ be a normalized vector such that $H\chi = \lambda \chi$. Then $(\chi, H\chi) = (\chi, \lambda \chi) = (\lambda \chi, \chi))$ it becomes clear that $$\lambda^{*}(\chi, \chi) = \lambda(\chi,\chi)$$ and thus $\lambda^{*} = \lambda$.
+\end{problem}
+
+\begin{problem}{Statement}{The eigenstates corresponding to different eigenvalues of Hermitian operator H are orthogonal.}
+Let $\ket{\phi}$ and $\ket{\psi}$ be eigenstates corresponding to different eigenvalues of $H$. Knowing $\bra{\phi}H\ket{\psi} = \bra{\phi}H^{*} \ket{\psi}$ this tells us that $\lambda\bra{\phi}\ket{\psi} = \chi\bra{\phi}\ket{\psi}$ since $\lambda \neq \chi$ this tell us that $\bra{\phi}\ket{\psi} = 0$. \\
+
+We should note that this Hilbert space is complete, this is given some $\ket{\psi}$ we have $\ket{\psi} = \sum_{n} c_{n}\ket{\psi_{n}}$. It turns out we can explicitly calculate $c_n$ using this condition. $\bra{\psi_{n}}\ket{\psi} = \sum_{n} c_{m} \bra{\psi_n}\ket{\psi_{m}}$ using the orthonormality of the $\ket{\phi_{n}}$'s we have that $\bra{\psi_{n}}\ket{\psi_{m}} = \delta_{mn}$ so finally $\bra{\psi_{n}}\ket{\psi} = c_n$.
+
+\begin{problem}{Statement}{$\sum_{n}\ket{\psi_n}\bra{\psi_n} = 1$}
+$\ket{\psi} = \sum_{n}\bra{\psi_{n}}\ket{\psi} \ket{\psi_{n}} = \sum_{n} \ket{\psi_{n}}\bra{\psi_{n}} \ket{\psi}$ which of course implies that $\sum_{n}\ket{\psi_{n}}\bra{\psi_{n}} = 1$.
+\end{problem}
+
+\end{problem}    
+	
+\end{document}

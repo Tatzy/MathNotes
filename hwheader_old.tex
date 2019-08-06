@@ -24,4 +24,5 @@
 
 \setlength{\parindent}{0pt}          % Sets default paragraph indent length to 0
 
-\newenvironment{problem}[2]{\par\noindent\hrulefill \\[10pt] \textbf{#1. } \textit{#2\\[10pt]}\indent}{}
+\newenvironment{problem}[2]{\textbf{#1. } \textit{#2\\[10pt]}\indent}{
+  \vspace{10pt} \par\noindent\hrulefill \\[10pt]}

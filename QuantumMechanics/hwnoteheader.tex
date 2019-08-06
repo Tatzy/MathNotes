@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 
 \usepackage[margin=0.7in]{geometry}  % Default margin
-\usepackage{mathpazo}                % Changes font to mathpazo :^)
+\usepackage{eulervm}                % Changes font to mathpazo :^)
 \usepackage{amsmath,amssymb}         %
 \usepackage{fancyhdr}                %
 \usepackage{amsthm}
@@ -13,6 +13,8 @@
 \rhead{\bfseries \thepage}           %
 \cfoot{}                             %
 
+\usepackage{physics}
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}          % 
 \newcommand{\C}{\mathbb{C}}          %
 \newcommand{\Z}{\mathbb{Z}}          %
@@ -22,6 +24,8 @@
 \newcommand{\Log}{\text{Log}}        %
 \newcommand{\Arg}{\text{Arg}}        %
 
+
+
 \setlength{\parindent}{0pt}          % Sets default paragraph indent length to 0
 
-\newenvironment{problem}[2]{\par\noindent\hrulefill \\[10pt] \textbf{#1. } \textit{#2\\[10pt]}\indent}{}
+\newenvironment{problem}[2]{\vspace{10pt} \textbf{#1. } \textit{#2\\[10pt]}}{}
