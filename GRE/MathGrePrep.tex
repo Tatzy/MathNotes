@@ -13,7 +13,36 @@ To begin, ETS gives us a set of topics to review and their frequencies on the GR
 \end{enumerate}
 
 \section{Calculus}
-\subsection{Pre-Calculus}
+\subsection{Trigonometric Functions}
+In mathematics it sometimes helps us to derive results to better understand where they come from. This in turn anchors the facts in our memory. Unfortunately, trigonometric identities do not seem to behave in this way. However, I will derive them now anyways using the exponential function.
+\subsubsection{Some Identities}
+\begin{align}
+	e^{i\theta} &= \cos(\theta) + i\sin(\theta)\\
+	e^{i\theta}e^{i\tau} &= (\cos(\theta) + i\sin(\theta))(\cos(\tau)+i\sin(\tau))\\
+	e^{i(\theta+\tau)} &= \cos(\theta)\cos(\tau)-\sin(\theta)\sin(\tau)+i(\sin(\theta)\cos(\tau) + \sin(\tau)\cos(\theta))
+\end{align}
+Letting $\theta = \tau$ will provide us with some useful identities:
+\begin{align}
+	e^{2i\theta} = \cos^{2}(\theta)-\sin^{2}(\theta)+i(2\sin(\theta)\cos(\theta))
+\end{align}
+Taking real and imaginary parts respectively,
+\begin{align}
+	\Re(e^{2i\theta}) &= \cos(2\theta) = \cos^{2}(\theta) - \sin^{2}(\theta)\\
+	\Im(e^{2i\theta}) &= \sin(2\theta) = 2\sin(\theta)\cos(\theta)
+\end{align}
+Knowing that $-\sin^{2} = \cos^{2} - 1$ we can now substitute into (5) to get
+\begin{align}
+	\cos(2\theta) = 2\cos^{2}(\theta) - 1 \quad \iff \quad \cos^{2}(\theta) = \frac{1 + \cos(2\theta)}{2}\\
+\end{align}
+Similarly letting $\cos^2 = 1 - \sin^2$ we have
+\begin{align}
+	\cos(2\theta) = 1 - 2\sin^{2}(\theta) \quad \iff \quad \sin^{2}(\theta) = \frac{1-\cos(2\theta)}{2}
+\end{align}
+We will find in calculus that is useful to have this ability to reduce the power of trigonometric functions, particularly as an integration technique.
+The formulas which we just derived are known as the \textit{double angle formulas}. There are also \textit{half angle formulas} by taking $\theta = \frac{\tau}{2}$ and taking a square root.
+Continuing on our identity frenzy it makes sense to talk about the \text{sum and addition formulas} which are closed form expressions in the case of $e^{i (\theta \pm \tau)}$. We leave this as an exercise to derive, and they also somewhat rely on properties we are mentioned in the following section.
+
+\subsubsection{Properties of Trigonometric Functions}
 
 \begin{thebibliography}{9}
 	\bibitem{UC}
