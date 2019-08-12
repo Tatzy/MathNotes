@@ -12,7 +12,7 @@ To begin, ETS gives us a set of topics to review and their frequencies on the GR
 	\item \textbf{Calculus - 50\%} In this section we will cover the basics of calculus up to Real Analysis. The plan is to cover \cite{Stewart} for calculus, \cite{Rudin} for analysis (the early chapters), and cover some calculus problems from the Princeton Review and \cite{UC} tests.
 \end{enumerate}
 
-\section{Calculus}
+\section{Pre-Calculus}
 \subsection{Trigonometric Functions}
 In mathematics it sometimes helps us to derive results to better understand where they come from. This in turn anchors the facts in our memory. Unfortunately, trigonometric identities do not seem to behave in this way. However, I will derive them now anyways using the exponential function.
 \subsubsection{Some Identities}
@@ -64,6 +64,18 @@ And since we've been ignoring $\tan$ for some time
 We can see easily how negating $\tau$ would yield another identity. In terms of power reduction we have the following formula 
 $$\tan(2\theta) = \frac{2\tan(\theta)}{1-\tan^{2}(\theta)}$$\\
 
+\subsubsection{Vieta's Formulas}
+An extremely useful trick we have for finding roots of polynomials are \textit{Vieta's Formulas}.
+Say we have a polynomial $a_n x^n + a_{n-1}x^{n-1} + ... + a_{0}$ with roots $r_{1}, r_2, ..., r_n$.
+Then $$a_{n}x^n + a_{n-1}x^{n-1} + ... + a_0 = a_{n}(x-r_1)(x-r_2)\cdots(x-r_n)$$
+It becomes clear from multiplying all of the constant terms that $a_{n}\prod_{i=0}^{n}r_i = (-1)^{n}a_0$ in other words $$r_1 r_2 \cdots r_n = (-1)^{n}\frac{a_0}{a_n}$$
+Similarly by counting coefficients (particularly of $x$)$$r_0 + r_1 + ... + r_n = (-1)^{n} \frac{a_{n-1}}{a_n}$$
+
+\begin{problem}{Example 1}{Assuming all roots of $x^3 - 3x^2 + 6x - 4$ are of the form $1+bi$, find the maximum value of $b$}
+	First we note that this polynomial is of degree 3, and it is not possible that it has all real roots.
+	Thus the roots we are looking for are $1+bi$, $1-bi$, and $r$. By Vieta $$1+bi + 1 -bi + r = 3 \rightarrow r = 1$$
+	$$(1+bi)(1-bi) = 4 \rightarrow b = \sqrt{3}$$
+\end{problem}
 
 \subsubsection{Problems}
 \textbf{1.} If $x \in \R$ and $\sin\sin(x) = \frac{1}{2}$ with $2 < x < 3$. Compute $\cos(-\sin(x))$.\\
