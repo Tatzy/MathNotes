@@ -1,0 +1,23 @@
+\input{hwnote.tex}
+\def\name{Daniel Tobias}
+\def\assignment{Introduction to Mathematical Logic}
+
+\begin{document}
+\begin{problem}{1}{Prove there are no wffs of length 2, 3, or 6 but all other numbers work}
+        We define the formula building operations
+
+\begin{align}
+    &\varepsilon_{\lnot}(\alpha) = (\lnot \alpha)\\
+    &\varepsilon_{\land}(\alpha,\beta) = (\alpha \land \beta)\\
+    &\varepsilon_{\lor}(\alpha, \beta) = (\alpha \lor \beta)\\
+    &\varepsilon_{\rightarrow}(\alpha,\beta) = (\alpha \to \beta)\\
+    &\varepsilon_{\leftrightarrow}(\alpha, \beta) = (\alpha \leftrightarrow \beta) 
+\end{align}
+We notice that the result of the operations use 4, 5, 5, 5, and 5 symbols respectively. If we add to our list any 
+single symbol $\alpha$ this allows for a wff of length 1. We can see clearly then that we cannot have a wff of length 2 or 3. Since the smallest 
+we can have is of length 1, and the next smallest is of length 4. Each of these operations add 3 new symbols to a wff, so the question becomes 
+how can we split 6 into these additions. If we start with either 1, 4, or 5 symbols (which are all possible), we see that we cannot add multiples of 3, or 4
+to any of these numbers to get a wff of length 6. For 7 we see that we can add 3 to a wff of length 4 and get a wff of length 7 (this
+can be done by applying $\varepsilon_{\lnot}$ on $\alpha$ twice).
+\end{problem}
+\end{document}
