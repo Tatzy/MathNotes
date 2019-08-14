@@ -13,11 +13,24 @@
     &\varepsilon_{\rightarrow}(\alpha,\beta) = (\alpha \to \beta)\\
     &\varepsilon_{\leftrightarrow}(\alpha, \beta) = (\alpha \leftrightarrow \beta) 
 \end{align}
-We notice that the result of the operations use 4, 5, 5, 5, and 5 symbols respectively. If we add to our list any 
-single symbol $\alpha$ this allows for a wff of length 1. We can see clearly then that we cannot have a wff of length 2 or 3. Since the smallest 
-we can have is of length 1, and the next smallest is of length 4. Each of these operations add 3 new symbols to a wff, so the question becomes 
-how can we split 6 into these additions. If we start with either 1, 4, or 5 symbols (which are all possible), we see that we cannot add multiples of 3, or 4
-to any of these numbers to get a wff of length 6. For 7 we see that we can add 3 to a wff of length 4 and get a wff of length 7 (this
-can be done by applying $\varepsilon_{\lnot}$ on $\alpha$ twice).
+We notice that if we start with 1 symbol, we can either add 3 symbols or 4. We can see then that we cannot possibly get the
+values 2, 3, or 6 with these additions however 4 and 5 are possible. We then notice in general any length $n$ is possible given that $\exists x,y \in \mathbb{N}$ such that 
+$$1 + 3x + 4y = n$$
+
+\textbf{Lemma.} For coprime $a,b$ the equation $ax + by = c$ has natural solutions when $c \ge (a-1)(b-1)$.\\
+
+\textit{Proof.} The Euclidean Algorithm can yield solutions for us such that $au -bv = 1$. Which means we can generate solutions to $ax + by = c$ with
+$x = cu -bt$ and $y=at-cv$, indeed $a(cu-bt) + b(at-cv) = c$ for $t \in \Z$. Asking for
+natural solutions means $$cu-bt > -1, \quad\quad at - cv > -1 $$
+combining these inequalities yields $$\frac{cu}{b} + \frac{1}{b} > t > \frac{cv}{a} - \frac{1}{a}$$
+Moving on:
+\begin{align*}
+    \frac{cu}{b} &+ \frac{1}{b} - \left(\frac{cv}{a} - \frac{1}{a}\right) = c \frac{au-bv}{ab} + \frac{1}{b} + \frac{1}{a}\\
+    &= \frac{c}{ab} + \frac{1}{b} + \frac{1}{a} \ge 1 + \frac{1}{ab} > 1
+\end{align*}
+Note this only works when $\frac{c}{ab} \ge 1 - \frac{1}{b}-\frac{1}{a} + \frac{1}{ab}$ in other words, $c \ge (a-1)(b-1)$. But now we know the difference between these two numbers
+is 1, meaning there is an integer between them. $\qed$\\
+
+Now using the lemma it is clear that there are natural number solutions for all wffs of length $n \ge (4-1)(3-1) +1 = 7$.
 \end{problem}
 \end{document}
