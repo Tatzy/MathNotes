@@ -40,7 +40,7 @@ Similarly letting $\cos^2 = 1 - \sin^2$ we have
 \end{align}
 We will find in calculus that is useful to have this ability to reduce the power of trigonometric functions, particularly as an integration technique.
 The formulas which we just derived are known as the \textit{double angle formulas}. There are also \textit{half angle formulas} by taking $\theta = \frac{\tau}{2}$ and taking a square root.
-Continuing on our identity frenzy it makes sense to talk about the \text{sum and addition formulas} which are closed form expressions in the case of $e^{i (\theta \pm \tau)}$. We leave this as an exercise to derive, and they also somewhat rely on properties we will mention in the following section.
+Continuing on our identity frenzy it makes sense to talk about the \text{subtraction and addition formulas} which are closed form expressions in the case of $e^{i (\theta \pm \tau)}$. We leave this as an exercise to derive, and they also somewhat rely on properties we will mention in the following section.
 
 \subsubsection{Extension to $\C$}
 \begin{align*}
@@ -55,11 +55,12 @@ We state the following identities without proof.
 	&\cos(x + 2\pi) = \cos(x)\\
 	&\sin(x + 2\pi) = \sin(x)\\
 	&\cos\left(x - \frac{\pi}{2}\right) = \sin(x)\\
-	&\sin\left( x + \frac{\pi}{2}\right) = \cos(x)
+	&\sin\left( x + \frac{\pi}{2}\right) = \cos(x)\\
 \end{align*}
 And since we've been ignoring $\tan$ for some time
 \begin{align*}
-	\tan(\theta + \tau) = \frac{\tan(\theta)+\tan(\tau)}{1-\tan(\theta)\tan(\tau)}
+	\tan(\theta + \tau) & = \frac{\tan(\theta)+\tan(\tau)}{1-\tan(\theta)\tan(\tau)} \\
+	\tan(\theta - \tau) & = \frac{\tan(\theta) - \tan(\tau)}{1 + \tan(\theta)\tan(\tau)}
 \end{align*}
 We can see easily how negating $\tau$ would yield another identity. In terms of power reduction we have the following formula 
 $$\tan(2\theta) = \frac{2\tan(\theta)}{1-\tan^{2}(\theta)}$$\\
@@ -104,6 +105,44 @@ It is clear that there is a lot of extraneous information in this expression, we
 	2 &= 6\sin^{2}(\theta)\\
 	\sqrt{\frac{1}{3}} &= \sin(\theta) \Rightarrow \theta = \arcsin\left(\sqrt{\frac{1}{3}}\right)
 \end{align*}
+
+\textbf{4.} The hyperbolic sine and cosine functions, denoted $\sinh$ and $\cosh$, respectively, are defined by the equations $$\sinh x = \frac{e^x - e^{-x}}{2} \qquad \cosh x = \frac{e^x + e^{-x}}{2}.$$ If the hyperbolic tangent function, $\tanh$, is defined by $$\tanh x = \frac{\sinh x}{\cosh x},$$ find a formula for $\tanh^{-1}x$. \\
+
+\textit{Solution.} This problem uses a similar idea used in problem 19 on page 33 of the Princeton Review Mathematics GRE book, 4th edition (2010) or number 2 above. We transform $\tanh x$ using the definitions of $\sinh x$ and $\cosh x$.
+
+\begin{align*}
+\tanh x & = \frac{\sinh x}{\cosh x} \\
+	  & = \frac{e^x - e^{-x}}{e^x + e^{-x}} \\
+\end{align*}
+
+Next, let $y = \tanh x$ and swap $x$ and $y$ to solve for $y$.
+
+\begin{align*}
+y & = \frac{e^x - e^{-x}}{e^x + e^{-x}} \\
+x & = \frac{e^y - e^{-y}}{e^y + e^{-y}} \\
+  & = \frac{e^{2y} - 1}{e^{2y} + 1} \qquad \textrm{multiply by } \frac{e^y}{e^y} \\
+x(e^{2y} + 1) & = e^{2y} - 1 \\
+xe^{2y} + x - e^{2y} + 1 & = 0 \\
+(x - 1)e^{2y} + (x + 1) & = 0
+\end{align*}
+Let $A = e^y$.
+\begin{align*}
+(x - 1)A^2 + (x + 1) & = 0 \\
+A & = \frac{\pm \sqrt{-4(x - 1)(x + 1)}}{2(x - 1)} \\
+  & = \frac{\pm \sqrt{-(x - 1)(x + 1)}}{x - 1} \\
+  & = \pm \sqrt{\frac{1 + x}{1 - x}} \\
+e^y & = \pm \sqrt{\frac{1 + x}{1 - x}} \\
+\end{align*}
+
+Since $\forall y \in \R$ $e^y > 0$, we eliminate the negative option.
+
+\begin{align*}
+e^y & = \sqrt{\frac{1 + x}{1 - x}} \\
+y & = \frac12 \log\left(\frac{1 + x}{1 - x}\right) \\
+\tanh^{-1}(x) & = \frac12 \log\left(\frac{1 + x}{1 - x}\right)
+\end{align*}
+
+So, $\boxed{\tanh^{-1}x = \displaystyle\frac12 \log\left(\frac{1 + x}{1 - x}\right)}$. \\
 
 The problems seen here are not particularly interesting. The use of trigonometry is to
 reduce the complexity of problems in the future for the most part.
