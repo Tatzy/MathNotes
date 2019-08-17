@@ -2,6 +2,7 @@
 \def\name{Daniel Tobias}
 \def\assignment{Mathematics GRE Review}
 \usepackage{hyperref}
+\usepackage{tikz}
 \begin{document}
 \section{Introduction}
 This document will serve as a review for the Mathematics Subject GRE. I am planning on taking the test in October of 2019, and I plan on reviewing (nearly) all of the topics on the GRE. My background is in pure mathematics, particularly I enjoy abstact algebra, mathematical logic, and computational complexity. However I have noticed that spending a lot of time away from things like calculus ultimately has slowed me down to unacceptable levels. What follows in the document will be completed exercises, commentary, and thoughts about the GRE. Hopefully someone may find this useful.\\
@@ -77,6 +78,7 @@ Similarly by counting coefficients (particularly of $x$)$$r_0 + r_1 + ... + r_n 
 	$$(1+bi)(1-bi) = 4 \rightarrow b = \sqrt{3}$$
 \end{problem}
 
+
 \subsubsection{Problems}
 \textbf{1.} If $x \in \R$ and $\sin\sin(x) = \frac{1}{2}$ with $2 < x < 3$. Compute $\cos(-\sin(x))$.\\
 
@@ -104,7 +106,7 @@ It is clear that there is a lot of extraneous information in this expression, we
 	2 &= 6\sin^{2}(\theta)\\
 	\sqrt{\frac{1}{3}} &= \sin(\theta) \Rightarrow \theta = \arcsin\left(\sqrt{\frac{1}{3}}\right)
 \end{align*}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textbf{4.} The hyperbolic sine and cosine functions, denoted $\sinh$ and $\cosh$, respectively, are defined by the equations $$\sinh x = \frac{e^x - e^{-x}}{2} \qquad \cosh x = \frac{e^x + e^{-x}}{2}.$$ If the hyperbolic tangent function, $\tanh$, is defined by $$\tanh x = \frac{\sinh x}{\cosh x}$$ find a formula for $\tanh^{-1}x$. \\
 
 \textit{Solution.} This problem uses a similar idea used in problem 19 on page 33 of the Princeton Review Mathematics GRE book, 4th edition (2010) or number 2 above. We transform $\tanh x$ using the definitions of $\sinh x$ and $\cosh x$.
@@ -141,6 +143,45 @@ y & = \frac12 \log\left(\frac{1 + x}{1 - x}\right) \\
 \end{align*}
 
 So $\tanh^{-1}x = \displaystyle\frac12 \log\left(\frac{1 + x}{1 - x}\right)$. \\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Calculus}
+\subsection{Problems}
+\begin{problem}{1}{Evaluate the one-sided limits of $f(x) = x - [[x]]$ at $n \in \Z$ where $[[x]]$ denotes the greatest integer $\le x$ \cite{Stewart}.}
+	To begin, it would help to see what this function looks like when graphed on $[0,3]$
+	\\
+	\begin{center}
+	\begin{tikzpicture}
+		\draw[->] (-1,0) -- (3,0) node[right] {$x$};
+		\draw[->] (0,-1) -- (0,3) node[above] {$y$};
+		\draw[scale=0.5,domain=0:1,smooth,variable=\x,blue] plot ({\x},{\x});
+		\draw[scale=0.5,domain=1:2,smooth,variable=\x,blue] plot ({\x},{\x-1});
+		\draw[scale=0.5,domain=2:3,smooth,variable=\x,blue] plot ({\x},{\x-2});
+	  \end{tikzpicture}
+	\end{center}
+
+	Which gives us this sort of periodic copy of the identity function on $[0.1]$. From this we can easily evaluate 
+	$$\lim_{x \to n^{-}} f(x) = 1, \qquad \lim_{x \to n^{+}} f(x) = 0$$ This only works if $n$ is positive however. When $n < 0$ then we have $$\lim_{x \to n^{-}} f(x) = -1$$
+\end{problem}
+
+\begin{problem}{2}{Show that $\lim_{x\to 2} x^2 - 3 =1$}
+A $\varepsilon-\delta$ proof may seem unimportant however sometimes questions on the GRE will ask you to come up with a $\delta$, so this skill remains useful.\\
+
+Working backwards we can see that $|x^2 - 4| = |x-2||x+2| < \varepsilon$. Here is an interesting tricl; assuming that $|x-2| < 1$ then
+\begin{align*}
+	-1 < x -2 < 1 \quad\Rightarrow \quad3 < x + 2 < 5 \quad\Rightarrow \quad |x+2| < 5\\
+\end{align*}
+
+Now simply saying $\delta = \min\left(1, \frac{\varepsilon}{5}\right)$ we have
+\begin{align*}
+	|x-2| &< \delta \\ 
+	5|x-2| &< 5\delta\\
+	|x+2||x-2| &< 5\delta\\
+	|x^2 - 3 - 1| &< \varepsilon
+\end{align*}
+Note that if $\delta = 1$ then $\varepsilon > 5$ and this still works. This problem is useful less because we are proving limits and more because
+relating the bounds of these functions is a useful trick to know. 
+\end{problem}
+
 
 \begin{thebibliography}{9}
 	\bibitem{UC}
