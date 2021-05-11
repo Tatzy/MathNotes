@@ -7,6 +7,9 @@
 \usepackage{fancyhdr}                %
 \usepackage{amsthm}
 
+
+
+
 \pagestyle{fancy}                    % These are used for custom headers, use
 \lhead{\bfseries \name}              % \def\name{name} and \def\assigment{assign}
 \chead{\bfseries \assignment}        % in the hw latex file to assign values
@@ -21,7 +24,14 @@
 \newcommand{\pypx}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\Log}{\text{Log}}        %
 \newcommand{\Arg}{\text{Arg}}        %
+\newcommand{\ket}[1]{\vert #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 \vert}
+\newcommand{\braket}[2]{\langle #1 \vert #1 \rangle}
+
+
 
 \setlength{\parindent}{0pt}          % Sets default paragraph indent length to 0
 
-\newenvironment{problem}[2]{\\[10pt] \textbf{#1. } \textit{#2\\[10pt]}\indent}{}
+\newenvironment{problem}[2]{\textbf{#1. } \textit{#2}\indent}{}
+\def\name{Daniel Tobias}
+\def\assignment{EEC289L Homework 5}
